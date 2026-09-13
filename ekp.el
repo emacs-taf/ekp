@@ -5,7 +5,7 @@
 ;; Author: Kinney Zhang <kinneyzhang666@gmail.com>
 ;; Maintainer: Kinney Zhang <kinneyzhang666@gmail.com>
 ;; Version: 1.0.0
-;; URL: https://github.com/Kinneyzhang/emacs-kp
+;; URL: https://gitea.gklazycat.heiyu.space/geekinney/ekp
 ;; Keywords: wp, text, typesetting, CJK
 ;; Package-Requires: ((emacs "29.1"))
 
