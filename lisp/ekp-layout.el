@@ -4,7 +4,7 @@
 
 ;; Author: Kinney Zhang <kinneyzhang666@gmail.com>
 ;; Maintainer: Kinney Zhang <kinneyzhang666@gmail.com>
-;; URL: https://gitea.gklazycat.heiyu.space/geekinney/ekp
+;; URL: https://gitea.gklazycat.heiyu.space/emacs-taf/ekp
 ;; Keywords: wp, text, typesetting, CJK
 
 ;; This file is NOT part of GNU Emacs.
@@ -52,7 +52,7 @@
   "Knuth-Plass optimal line breaking with CJK support."
   :group 'text
   :prefix "ekp-"
-  :link '(url-link "https://gitea.gklazycat.heiyu.space/geekinney/ekp"))
+  :link '(url-link "https://gitea.gklazycat.heiyu.space/emacs-taf/ekp"))
 
 (defcustom ekp-inline-code-policy 'no-hyphen
   "Default break policy for automatic inline code spans.
