@@ -83,7 +83,7 @@ Elisp。已启用模块若 signal,则作为后端契约错误直接呈现。若�
 `ekp-use-c-module`。将该开关设为 nil 可强制 live append 使用纯 Elisp；
 模块不可用时会自动回退。
 
-[完整用法与接口契约](docs/manual.zh-CN.md)。
+[完整用法与接口契约](https://gitea.gklazycat.heiyu.space/emacs-taf/etaf-manual/src/branch/main/book/zh-CN/ekp-principles.md)。
 
 ## 开发
 

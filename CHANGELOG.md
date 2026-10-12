@@ -6,6 +6,10 @@ project aims to follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Removed
+
+- The package manual `docs/manual.md` is replaced by the [EKP chapters](https://gitea.gklazycat.heiyu.space/emacs-taf/etaf-manual/src/branch/main/book/en/ekp-principles.md) of the ETAF Reference Manual, which the README and the package Commentary link.
+
 ### Changed
 
 - Expose the package entry at the repository root, document supported APIs in
