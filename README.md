@@ -96,7 +96,7 @@ auto-mode may use it for the prepared append DP even if
 `ekp-use-c-module`. Set the new switch to nil to force pure-Elisp live
 append, or when the module is unavailable it falls back automatically.
 
-[Complete usage and interface contracts](https://gitea.gklazycat.heiyu.space/emacs-taf/etaf-manual/src/branch/main/book/en/ekp-principles.md).
+[Complete usage and interface contracts](https://etaf.top/ekp-principles/).
 
 ## Development
 
