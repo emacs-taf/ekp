@@ -240,5 +240,39 @@ kept returning the paragraph resolved under the previous style."
     (ekp-clear-caches)
     (should (equal-including-properties out-j (ekp-pixel-justify s 30)))))
 
+(ert-deftest ekp-test-layout-plan-readers-expose-lines-and-gaps ()
+  "Public readers expose a plan's source, lines, breaks and glue targets."
+  (ekp-clear-caches)
+  (let* ((text "aaaa bbbb cccc dddd eeee ffff gggg")
+         (plan (ekp-layout-plan text 30)))
+    (should (eq (ekp-layout-plan-state plan) 'planned))
+    (should (equal (ekp-layout-plan-string plan) text))
+    (let ((lines (ekp-layout-plan-lines plan)))
+      (should (> (length lines) 1))
+      (let* ((line (aref lines 0))
+             (start (ekp-layout-line-source-start line))
+             (end (ekp-layout-line-source-end line)))
+        (should (= 0 (ekp-layout-line-index line)))
+        (should (integerp start))
+        (should (integerp end))
+        (should (<= start end))
+        (should (string-match-p "\\`[a-z ]+\\'" (substring text start end)))
+        (should (integerp (ekp-layout-line-leading-pixel line)))
+        (should (integerp (ekp-layout-line-trailing-pixel line)))
+        (should (memq (ekp-layout-line-hyphen-p line) '(nil t)))
+        (let* ((gaps (ekp-layout-line-gaps line))
+               (gap (and (> (length gaps) 0) (aref gaps 0))))
+          (when gap
+            (should (numberp (ekp-layout-gap-natural-pixel gap)))
+            (should (numberp (ekp-layout-gap-target-pixel gap))))))))
+  ;; An overlong single token under the natural policy carries no lines.
+  (let ((ekp-overlong-token-policy 'natural))
+    (let ((natural (ekp-layout-plan (make-string 40 ?x) 10)))
+      (should (eq (ekp-layout-plan-state natural) 'natural))
+      (should (= 0 (length (ekp-layout-plan-lines natural))))))
+  ;; Foreign values are rejected by the record readers.
+  (should-error (ekp-layout-plan-lines 5) :type 'wrong-type-argument)
+  (should-error (ekp-layout-gap-target-pixel 5) :type 'wrong-type-argument))
+
 (provide 'ekp-tests)
 ;;; ekp-tests.el ends here

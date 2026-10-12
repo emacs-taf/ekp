@@ -299,6 +299,11 @@
       "purpose": "Results cached at one looseness must not serve another. Regression: after justifying at looseness 0, changing `ekp-looseness' returned the stale looseness-0 layout for the same (string, width)."
     },
     {
+      "name": "ekp-test-layout-plan-readers-expose-lines-and-gaps",
+      "file": "tests/ekp-tests.el",
+      "purpose": "The plan readers expose its source, lines, breaks, leading and trailing pixels, hyphens and glue targets."
+    },
+    {
       "name": "ekp-test-style-change-invalidates-fast-path",
       "file": "tests/ekp-tests.el",
       "purpose": "Changing a style variable must invalidate the same-string fast path. Regression: with the same string object, (setq ekp-alignment ...) kept returning the paragraph resolved under the previous style."

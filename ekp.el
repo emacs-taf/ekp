@@ -244,6 +244,55 @@
 ;; The plan records source offsets, glue targets, breaks, indentation,
 ;; and discretionary hyphens without choosing a display representation.
 ;;
+;; Function: ekp-layout-plan-string (plan)
+;;;###autoload (autoload 'ekp-layout-plan-string "ekp" nil nil)
+;; Return the cleaned source text PLAN was planned from.
+;;
+;; Function: ekp-layout-plan-lines (plan)
+;;;###autoload (autoload 'ekp-layout-plan-lines "ekp" nil nil)
+;; Return PLAN's display lines as a vector of line records.
+;;
+;; Function: ekp-layout-plan-state (plan)
+;;;###autoload (autoload 'ekp-layout-plan-state "ekp" nil nil)
+;; Return PLAN's state: `planned', or `natural' when the overlong-token
+;; policy left it unbroken.
+;;
+;; Function: ekp-layout-line-index (line)
+;;;###autoload (autoload 'ekp-layout-line-index "ekp" nil nil)
+;; Return LINE's zero-based index within its plan.
+;;
+;; Function: ekp-layout-line-source-start (line)
+;;;###autoload (autoload 'ekp-layout-line-source-start "ekp" nil nil)
+;; Return the source offset where LINE starts.
+;;
+;; Function: ekp-layout-line-source-end (line)
+;;;###autoload (autoload 'ekp-layout-line-source-end "ekp" nil nil)
+;; Return the source offset just past LINE's source range.
+;;
+;; Function: ekp-layout-line-leading-pixel (line)
+;;;###autoload (autoload 'ekp-layout-line-leading-pixel "ekp" nil nil)
+;; Return the pixel width LINE keeps before its first box.
+;;
+;; Function: ekp-layout-line-trailing-pixel (line)
+;;;###autoload (autoload 'ekp-layout-line-trailing-pixel "ekp" nil nil)
+;; Return the trailing pixel width LINE carries after its last box.
+;;
+;; Function: ekp-layout-line-hyphen-p (line)
+;;;###autoload (autoload 'ekp-layout-line-hyphen-p "ekp" nil nil)
+;; Return non-nil when LINE ends with a discretionary hyphen.
+;;
+;; Function: ekp-layout-line-gaps (line)
+;;;###autoload (autoload 'ekp-layout-line-gaps "ekp" nil nil)
+;; Return LINE's semantic gaps as a vector of gap records.
+;;
+;; Function: ekp-layout-gap-natural-pixel (gap)
+;;;###autoload (autoload 'ekp-layout-gap-natural-pixel "ekp" nil nil)
+;; Return GAP's unstretched natural width in pixels.
+;;
+;; Function: ekp-layout-gap-target-pixel (gap)
+;;;###autoload (autoload 'ekp-layout-gap-target-pixel "ekp" nil nil)
+;; Return GAP's target width in pixels chosen by the layout.
+;;
 ;; Variable: ekp-line-penalty
 ;; Penalty for each line break.  Higher = fewer lines.  Default 10.
 ;;
