@@ -4,7 +4,7 @@
 
 ;; Author: Kinney Zhang <kinneyzhang666@gmail.com>
 ;; Maintainer: Kinney Zhang <kinneyzhang666@gmail.com>
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; URL: https://github.com/emacs-taf/ekp
 ;; Keywords: wp, text, typesetting, CJK
 ;; Package-Requires: ((emacs "29.1"))

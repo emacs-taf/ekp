@@ -20,6 +20,9 @@ project aims to follow [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- Package installation compiles the incremental append guard without an
+  incorrectly named ignored binding; layout behavior is unchanged.
+
 - Malformed non-nil C backend results no longer fall back to Elisp. Nil whole
   results and nil per-item breaks remain soft failures; malformed single or
   batch output now signals `ekp-backend-contract-error`, so a broken backend

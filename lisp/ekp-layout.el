@@ -3594,7 +3594,7 @@ Only property-free, context-stable 1D layouts take this fast path."
       (when-let* ((append (ekp--append-para old-para string))
                   (para (car append))
                   (stable (cdr append))
-                  (_ (null (ekp-para-resolved-policies para)))
+                  ((null (ekp-para-resolved-policies para)))
                   (dp (ekp--dp-cache-append
                        para old-para stable line-pixel)))
         (ekp--layout-plan-from-para
