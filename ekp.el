@@ -30,6 +30,9 @@
 ;; the globally optimal break sequence is chosen, CJK kinsoku rules and
 ;; discretionary hyphenation apply, and lines are justified to the pixel.
 ;;
+;; `make' is optional: it builds the native acceleration module, and
+;; without it the pure Elisp breaker handles every paragraph.
+;;
 ;; Public API
 ;;
 ;; Load this package with (require 'ekp) after adding the repository
