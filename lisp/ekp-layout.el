@@ -45,9 +45,6 @@
 (declare-function ekp-c-break-with-arrays "ext:ekp")
 (declare-function ekp-c-break-batch "ext:ekp")
 
-(defconst ekp--load-file (or load-file-name (buffer-file-name))
-  "Path to this file, for locating dictionaries.")
-
 (defgroup ekp nil
   "Knuth-Plass optimal line breaking with CJK support."
   :group 'text

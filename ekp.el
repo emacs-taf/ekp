@@ -26,15 +26,19 @@
 
 ;;; Commentary:
 
+;; Knuth-Plass optimal line breaking for Emacs.  Text is split into boxes,
+;; the globally optimal break sequence is chosen, CJK kinsoku rules and
+;; discretionary hyphenation apply, and lines are justified to the pixel.
+;;
 ;; Public API
 ;;
 ;; Load this package with (require 'ekp) after adding the repository
 ;; root to load-path.
 ;; Only the interfaces listed below are supported for use by other packages.
 ;; All unlisted symbols and implementation features are internal, including
-;; names without a double hyphen. Do not require files below lisp/ from consumers.
+;; names without a double hyphen.  Do not require files below lisp/ from consumers.
 ;; This Commentary is the authoritative export list; implementations and precise
-;; docstrings remain beside their definitions. The ETAF Reference Manual contains workflows.
+;; docstrings remain beside their definitions.  The ETAF Reference Manual contains workflows.
 ;;
 ;; Variable: ekp-adjacent-fitness-penalty
 ;; Penalty when adjacent lines differ in tightness by >1 class.
@@ -410,11 +414,17 @@
 ;;;###autoload
 (eval-and-compile
   (add-to-list 'load-path
-               (expand-file-name "lisp"
-                                 (file-name-directory
-                                  (or load-file-name
-                                      (bound-and-true-p byte-compile-current-file)
-                                      buffer-file-name)))))
+               (expand-file-name
+                "lisp"
+                (file-name-directory
+                 (or (and load-file-name
+                          ;; A native-compiled file lives in `eln-cache',
+                          ;; where no sibling `lisp' directory exists.
+                          (not (string-suffix-p ".eln" load-file-name))
+                          load-file-name)
+                     (bound-and-true-p byte-compile-current-file)
+                     (locate-library "ekp")
+                     buffer-file-name)))))
 
 (require 'ekp-layout)
 (require 'ekp-buffer)

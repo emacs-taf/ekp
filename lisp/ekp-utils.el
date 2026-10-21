@@ -25,14 +25,29 @@
 
 ;;; Code:
 
-(defconst ekp-utils--load-file (or load-file-name (buffer-file-name))
-  "Path to this file, for locating module directories.")
+(defconst ekp-utils--load-file
+  (or (and load-file-name
+           (not (string-suffix-p ".eln" load-file-name))
+           load-file-name)
+      (locate-library "ekp")
+      buffer-file-name)
+  "Path to this file, or to the package main file as a fallback.
+Native-compiled files live in a cache directory, so their own name says
+nothing about where the package resources are.")
 
 (defun ekp-root-dir ()
-  "Return the resource root above the implementation directory."
-  (when ekp-utils--load-file
-    (file-name-as-directory
-     (expand-file-name ".." (file-name-directory ekp-utils--load-file)))))
+  "Return the resource root of this package.
+The directory is chosen by looking for the bundled resources rather than
+by trusting a single path, because a stale copy of this package in
+`load-path' can otherwise win the lookup."
+  (let* ((dir (and ekp-utils--load-file
+                   (file-name-directory ekp-utils--load-file)))
+         (parent (and dir (expand-file-name ".." dir)))
+         (found (cond ((and dir (file-directory-p (expand-file-name "dictionaries" dir))) dir)
+                      ((and parent (file-directory-p (expand-file-name "dictionaries" parent))) parent)
+                      (dir)
+                      (t default-directory))))
+    (file-name-as-directory found)))
 
 ;;;; Font Detection
 
