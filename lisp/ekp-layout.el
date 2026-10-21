@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2024-2026 Kinney Zhang
 
-;; Author: Kinney Zhang <kinneyzhang666@gmail.com>
-;; Maintainer: Kinney Zhang <kinneyzhang666@gmail.com>
+;; Author: Kinney Zhang <vhkdzszh@gmail.com>
+;; Maintainer: Kinney Zhang <vhkdzszh@gmail.com>
 ;; URL: https://github.com/emacs-taf/ekp
 ;; Keywords: wp, text, typesetting, CJK
 

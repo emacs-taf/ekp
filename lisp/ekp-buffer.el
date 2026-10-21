@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2024-2026 Kinney Zhang
 
-;; Author: Kinney Zhang <kinneyzhang666@gmail.com>
+;; Author: Kinney Zhang <vhkdzszh@gmail.com>
 ;; Keywords: wp, convenience
 
 ;; This file is NOT part of GNU Emacs.
