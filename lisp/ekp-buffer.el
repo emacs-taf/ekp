@@ -394,7 +394,9 @@ caps the narrowest live window at N pixels."
     (if (and (display-graphic-p (window-frame win))
              (> (or (cadr (window-fringes win)) 0) 0))
         0
-      (frame-char-width (window-frame win)))))
+      ;; The continuation mark belongs to the window's own text, not to a
+      ;; canvas this toolkit paints.
+      (frame-char-width (window-frame win))))) ;; frame metric
 
 (defun ekp-buffer--window-pixel (&optional window)
   "Return usable text width in pixels for WINDOW."
